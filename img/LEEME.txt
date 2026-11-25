@@ -1,0 +1,1 @@
+fotos van aquí con el nombre p<codigo_de_barras>.webp (ej: p6291100136605.webp)

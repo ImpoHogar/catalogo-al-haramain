@@ -1,0 +1,30 @@
+// ===== CATALOGO AL HARAMAIN — PRODUCTOS =====
+// price=PRECIO 20% (colones). notes/genero reciclados del catálogo grande. stock en vivo de Supabase.
+const BRAND='AL HARAMAIN';
+const PRODUCTS=[
+  { id:1, code:'6291100136605', name:'AL HARAMAIN L AVENTURE BLANCHE 100ML EDP', brand:BRAND, price:11856, cat:'Perfume', genero:'Mujer', notes:["Limón", "Bergamota", "Lavanda", "Rosa", "Grosella negra", "Jazmín"], stock:null, img:true },
+  { id:2, code:'6291106814965', name:'AL HARAMAIN DUBAI MIRACLE EDP 100ML', brand:BRAND, price:19105, cat:'Perfume', genero:'Unisex', notes:["Litchi", "Nuez moscada", "Rosa búlgara", "Notas amaderadas", "Pachulí", "Rosa"], stock:null, img:true },
+  { id:3, code:'6291106812428', name:'AL HARAMAIN ROSE OUD PARFUM 100ML', brand:BRAND, price:24383, cat:'Perfume', genero:'Unisex', notes:["Pimienta rosa", "Gálbano", "Bergamota", "Cedro", "Sándalo", "Musgo de roble"], stock:null, img:true },
+  { id:4, code:'6291106813067', name:'AL HARAMAIN AMBER OUD GOLD EXT H', brand:BRAND, price:21929, cat:'Perfume', genero:'Hombre', notes:["Bergamota", "Notas verdes", "Melón", "Piña", "Notas dulces", "Ámbar"], stock:null, img:true },
+  { id:5, code:'6291106814354', name:'AL HARAMAIN WHITE ORCHID PARFUM 100ML', brand:BRAND, price:19069, cat:'Perfume', genero:'Mujer', notes:["Orquídea blanca", "Notas florales", "Notas frutales", "Sándalo", "Ámbar", "Vainilla"], stock:null, img:true },
+  { id:6, code:'6291100131310', name:'AL HARAMAIN MANAGE BLANCHE EDP 75ML', brand:BRAND, price:20006, cat:'Perfume', genero:'Mujer', notes:["Notas orientales", "Vainilla", "Azafrán", "Pachulí", "Almizcle", "Madera de gaiac"], stock:null, img:true },
+  { id:7, code:'6291100131747', name:'AL HARAMAIN L AVENTURE GOLDEDP 200ML', brand:BRAND, price:17539, cat:'Perfume', genero:'Mujer', notes:["Grosella negra", "Hojas verdes", "Bergamota", "Jazmín", "Rosa", "Lirio del valle"], stock:null, img:true },
+  { id:8, code:'6291100131594', name:'AL HARAMAIN L AVENTURE ROSE 200ML', brand:BRAND, price:19043, cat:'Perfume', genero:'Mujer', notes:["Rosa", "Cítricos", "Bayas rojas", "Jazmín", "Ámbar", "Almizcle"], stock:null, img:true },
+  { id:9, code:'6291106814415', name:'AL HARAMAIN RED JASPER PARFUM 100ML', brand:BRAND, price:19069, cat:'Perfume', genero:'Unisex', notes:["Manzana", "Azafrán", "Notas florales", "Cuero", "Rosa", "Notas almizcladas"], stock:null, img:true },
+  { id:10, code:'6291100130450', name:'AL HARAMAIN AVENTURE FEMME EDP 200ML', brand:BRAND, price:17069, cat:'Perfume', genero:'Mujer', notes:["Piña", "Grosella negra", "Bergamota", "Bayas silvestres", "Cedro", "Fresia"], stock:null, img:true },
+  { id:11, code:'6291100130092', name:'AL HARAMAIN AVENTURE GOLD 100ML EDP M', brand:BRAND, price:14094, cat:'Perfume', genero:'Mujer', notes:["Grosellas negras", "Hojas verdes", "Bergamota", "Lirio del valle", "Ciruela", "Rosa"], stock:null, img:true },
+  { id:12, code:'6291106815856', name:'MIN COLLECT AL HARAM SPECIAL 4PC', brand:BRAND, price:18756, cat:'Estuches', genero:'Unisex', notes:[], stock:null, img:true },
+  { id:13, code:'6291106813579', name:'AL HARAMAIN LE AVENTURE FRAICHE', brand:BRAND, price:14508, cat:'Perfume', genero:'Mujer', notes:["Limón", "Bergamota", "Jengibre", "Té", "Cardamomo", "Hojas de violeta"], stock:null, img:true },
+  { id:14, code:'6291106815771', name:'MIN COLLECTION AL HARAMIN 6PC', brand:BRAND, price:17818, cat:'Estuches', genero:'Unisex', notes:[], stock:null, img:true },
+  { id:15, code:'6291106815849', name:'MIN COLLECTION AL HARAMAIN MUSK SERIES 4', brand:BRAND, price:17818, cat:'Estuches', genero:'Unisex', notes:["Almizcle blanco", "Rosa", "Azahar", "Ámbar", "Sándalo", "Vainilla"], stock:null, img:true },
+  { id:16, code:'6291100133444', name:'AL HARAMAIN PRIVATE EDITION 60ML', brand:BRAND, price:18720, cat:'Perfume', genero:'Unisex', notes:["Azafrán", "Especias", "Bergamota", "Rosa", "Jazmín", "Oud"], stock:null, img:true },
+  { id:17, code:'6291106813593', name:'ALHARAMAIN AVENTURE GRAPEFRUIT EDP 100ML', brand:BRAND, price:14094, cat:'Perfume', genero:'Mujer', notes:["Bayas rojas", "Lichi", "Grosella negra", "Toronja", "Fresia", "Melón"], stock:null, img:true },
+  { id:18, code:'6291106816105', name:'SET AL HARAMAIN AMBER OUD DUBAI NIGTH UNISEX EDITION GIFT', brand:BRAND, price:24613, cat:'Estuches', genero:'Unisex', notes:[], stock:null, img:true },
+  { id:19, code:'6291106813616', name:'AL HARAMAIN L AVENTURE IRIS 100ML', brand:BRAND, price:14094, cat:'Perfume', genero:'Mujer', notes:["Cardamomo", "Notas verdes", "Bergamota", "Limón", "Iris", "Notas aromáticas"], stock:null, img:true },
+  { id:20, code:'6291100133475', name:'AL HARAMAIN AMBER OUD ULTRA VIOLET 125M', brand:BRAND, price:28886, cat:'Perfume', genero:'Mujer', notes:["Rosa", "Jengibre", "Bergamota", "Nardo", "Jazmín", "Flores blancas"], stock:null, img:true },
+  { id:21, code:'6291100130597', name:'AL HARAMAIN LAVENTURE INTENSE 100ML', brand:BRAND, price:13708, cat:'Perfume', genero:'Hombre', notes:["Bergamota", "Limón", "Elemi", "Notas amaderadas", "Jazmín", "Lirio del valle"], stock:null, img:true },
+  { id:22, code:'6291106812282', name:'AL HARAMAIN L AVENTURE ROSE 100ML EDP M', brand:BRAND, price:13405, cat:'Perfume', genero:'Mujer', notes:["Rosa", "Cítricos", "Bayas rojas", "Jazmín", "Ámbar", "Almizcle"], stock:null, img:true },
+  { id:23, code:'6291100131716', name:'AL HARAMAIN AMBER OUD GOLD 60ML', brand:BRAND, price:14945, cat:'Perfume', genero:'Unisex', notes:["Bergamota", "Notas verdes", "Melón", "Piña", "Notas dulces", "Ámbar"], stock:null, img:true },
+  { id:24, code:'6291100131822', name:'COLECCTION HARAMAIN AMBER OUD 4P', brand:BRAND, price:80179, cat:'Estuches', genero:'Unisex', notes:[], stock:31, img:true },
+  { id:25, code:'6291100131839', name:'COLECTION HARAMAIN L AVENTURE 4P', brand:BRAND, price:45101, cat:'Estuches', genero:'Unisex', notes:[], stock:45, img:true },
+];

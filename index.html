@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0C1016">
+<title>Al Haramain — Catálogo de Pedido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=20261125">
+<link rel="stylesheet" href="css/haramain.css?v=20261125">
+</head>
+<body>
+
+<!-- ============ PANTALLA DE ANUNCIO ============ -->
+<div id="splash" class="ha-splash">
+  <div class="ha-splash-card">
+    <div class="ha-splash-media">
+      <img src="img/anuncio.jpg" alt="Al Haramain — Sets de regalo exclusivos">
+    </div>
+    <div class="ha-splash-copy">
+      <img class="ha-splash-logo" src="img/logo-haramain-gold.png" alt="Al Haramain · Since 1970">
+      <div class="ha-splash-rule"></div>
+      <p class="ha-splash-lead">Colección exclusiva de perfumería árabe</p>
+      <div class="ha-splash-promo">
+        <span class="ha-splash-kicker">Obsequio exclusivo</span>
+        <p>Set de regalo completo por compras desde</p>
+        <div class="ha-splash-amounts"><b>₡500.000</b><i></i><b>₡1.000.000</b></div>
+        <small>En líneas seleccionadas Al Haramain</small>
+      </div>
+      <button type="button" class="ha-splash-btn" onclick="enterCatalog()">
+        Ver catálogo
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <div class="ha-splash-ih">
+        <img src="img/logo-impohogar-dark.png" alt="ImpoHogar">
+        <span>Distribuido por ImpoHogar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Linterna gigante de fondo (detrás de todo el catálogo) -->
+<div id="lanternBg" aria-hidden="true"></div>
+
+<!-- ============ ENCABEZADO ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="header-logo ih-mark" id="headerLogo" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="ImpoHogar, volver arriba">
+      <img src="img/logo-impohogar.png" alt="Grupo ImpoHogar">
+      <span>Distribuidor oficial</span>
+    </a>
+
+    <div class="toolbar" role="search">
+      <div class="search-field">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="search" type="search" placeholder="Buscar por nombre o código..." autocomplete="off" enterkeyhint="search" aria-label="Buscar">
+      </div>
+    </div>
+
+    <nav class="header-actions" aria-label="Acciones">
+      <button id="reviewOrderBtn" type="button" class="review-btn" onclick="openOrderReview()" aria-label="Ver mi pedido">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="review-btn-label">Ver mi pedido</span>
+        <span id="reviewBadge" class="review-badge" style="display:none;">0</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO DE MARCA ============ -->
+<section class="ha-hero" aria-label="Al Haramain">
+  <img class="ha-hero-logo" src="img/logo-haramain-gold.png" alt="Al Haramain — Since 1970">
+  <div class="ha-hero-rule"></div>
+  <p class="ha-hero-tag">Perfumería árabe de autor · <b>Distribuido por ImpoHogar</b></p>
+</section>
+
+<!-- ============ CATALOGO ============ -->
+<main class="catalog" id="catalogo">
+  <div class="catalog-head">
+    <div>
+      <h1 class="catalog-title">Al Haramain</h1>
+      <p class="catalog-sub">Ingresa la cantidad que deseas en cada producto y genera tu pedido en Excel</p>
+    </div>
+    <div class="badge-count" id="count" aria-live="polite">Cargando productos...</div>
+  </div>
+
+  <div class="category-tiles" id="categoryTiles" aria-label="Filtrar por categoría"></div>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- ============ PIE ============ -->
+<footer class="ha-footer">
+  <img src="img/logo-impohogar-dark.png" alt="Grupo ImpoHogar">
+  <p>Al Haramain <b>·</b> Since 1970 <b>·</b> Distribuido por ImpoHogar</p>
+</footer>
+
+<div class="footer-space"></div>
+
+<!-- ============ BARRA DEL PEDIDO ============ -->
+<div id="orderBar">
+  <div class="order-bar-main">
+    <div class="summary">
+      <span class="summary-item"><b id="selCount">0</b> <span class="summary-lbl">Productos</span></span>
+      <span class="summary-sep" aria-hidden="true"></span>
+      <span class="summary-item"><b id="selUnits">0</b> <span class="summary-lbl">Unidades</span></span>
+      <span class="summary-sep" aria-hidden="true"></span>
+      <span class="summary-item"><b id="selTotal">₡0</b> <span class="summary-lbl">Total</span></span>
+    </div>
+    <span id="status" role="status"></span>
+    <button id="genBtn" type="button" disabled onclick="openCustomerModal()">Generar pedido (Excel)</button>
+  </div>
+</div>
+
+<!-- ============ FICHA / VISOR ============ -->
+<div id="lightbox" class="lightbox" onclick="if(event.target===this) closeLightbox()" role="dialog" aria-modal="true" aria-label="Ficha del producto">
+  <div class="lightbox-dialog">
+    <button class="lightbox-close" type="button" onclick="closeLightbox()" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="lightbox-media">
+      <div class="lightbox-tabs" id="lightboxTabs">
+        <button type="button" data-i="0" onclick="lightboxGoTo(0, event)">Foto</button>
+        <button type="button" data-i="1" onclick="lightboxGoTo(1, event)">Código de barras</button>
+      </div>
+      <div class="lightbox-imgwrap" id="lightboxStage"></div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+    <aside class="lightbox-info" id="lightboxInfo"></aside>
+  </div>
+</div>
+
+<!-- ============ MODALES ============ -->
+<div id="orderModal" class="order-modal" onclick="if(event.target===this) closeOrderReview()">
+  <div class="order-card" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="order-header">
+      <h3 id="orderModalTitle">Mi pedido</h3>
+      <button type="button" onclick="closeOrderReview()" aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="order-list" id="orderList"></div>
+    <div class="order-footer" style="flex-direction:column;align-items:stretch;gap:6px;">
+      <div class="order-total-row">
+        <span><b id="orderModalCount">0</b> productos · <b id="orderModalUnits">0</b> unidades</span>
+        <span>Total <b id="orderModalTotal">₡0</b></span>
+      </div>
+      <button type="button" onclick="closeOrderReview()">Seguir viendo el catálogo</button>
+    </div>
+  </div>
+</div>
+
+<div id="customerModal" class="order-modal" onclick="if(event.target===this) closeCustomerModal()">
+  <div class="order-card order-card-narrow" role="dialog" aria-modal="true" aria-labelledby="customerModalTitle">
+    <div class="order-header">
+      <h3 id="customerModalTitle">Tus datos</h3>
+      <button type="button" onclick="closeCustomerModal()" aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="form-body">
+      <p class="form-intro">Antes de generar tu pedido, cuéntanos quién eres para atenderte mejor.</p>
+      <label class="field-label" for="custName">Nombre completo</label>
+      <input id="custName" class="field-input" type="text" placeholder="Tu nombre o negocio" autocomplete="name">
+      <label class="field-label" for="custPhone">Teléfono</label>
+      <input id="custPhone" class="field-input" type="tel" placeholder="Tu número de teléfono" autocomplete="tel">
+      <div id="custError" class="field-error" role="alert"></div>
+    </div>
+    <div class="order-footer order-footer-end">
+      <button type="button" onclick="confirmCustomerInfo()">Continuar y generar pedido</button>
+    </div>
+  </div>
+</div>
+
+<div id="thanksModal" class="thanks-modal">
+  <div class="thanks-card">
+    <div class="thanks-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <p class="thanks-text">¡Muchas gracias! Tu pedido se descargó en Excel. En breve un agente de ventas te ayudará con el proceso.</p>
+    <button class="thanks-btn" type="button" onclick="hideThankYouModal()">Continuar</button>
+  </div>
+</div>
+
+<div id="sellerModal" class="thanks-modal" onclick="if(event.target===this) closeSellerModal()">
+  <div class="thanks-card seller-card">
+    <div class="thanks-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 20 4l-4 16-4.5-6.5z"/><path d="M11.5 13.5 20 4"/></svg></div>
+    <p class="thanks-text thanks-text-tight">Elige tu vendedor para enviarle tu pedido</p>
+    <p class="thanks-note">Se abrirá WhatsApp con el mensaje listo — solo adjunta ahí el Excel que se acaba de descargar.</p>
+    <div class="seller-list" id="sellerList"></div>
+    <button class="thanks-btn thanks-btn-ghost" type="button" onclick="closeSellerModal()">Omitir</button>
+  </div>
+</div>
+
+<span class="toast" id="toast" style="position:fixed;bottom:110px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);padding:11px 22px;border-radius:999px;font-weight:600;font-size:14px;z-index:9999;opacity:0;transition:.25s;pointer-events:none;font-family:var(--font-ui);"></span>
+
+<!-- Librerías: Excel del pedido y código de barras -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.12.3/JsBarcode.all.min.js"></script>
+<script defer src="js/config.js?v=20261125"></script>
+<script defer src="js/products.js?v=20261125"></script>
+<script defer src="js/app.js?v=20261125"></script>
+</body>
+</html>
