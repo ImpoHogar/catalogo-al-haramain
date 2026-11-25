@@ -234,6 +234,7 @@ body{ background:var(--bg); color:var(--ink); }
 .ha-splash-amounts b{ font-family:var(--font-display);font-size:30px;font-weight:700;color:#E7CE8B; }
 .ha-splash-amounts i{ width:1px;height:26px;background:rgba(197,160,89,.4); }
 .ha-splash-promo small{ font-family:var(--font-ui);font-size:11px;color:#9A9081;letter-spacing:1px;text-transform:uppercase; }
+.ha-splash-hasta{ margin-top:10px;font-family:var(--font-ui);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#E7CE8B;border-top:1px solid rgba(197,160,89,.25);padding-top:10px; }
 .ha-splash-btn{
   display:inline-flex;align-items:center;gap:10px;cursor:pointer;margin-top:6px;
   font-family:var(--font-ui);font-size:16px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
